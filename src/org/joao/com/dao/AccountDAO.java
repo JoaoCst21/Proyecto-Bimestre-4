@@ -12,21 +12,14 @@ public class AccountDAO extends DAO<Account> {
     }
 
     @Override
-    protected void setProcedureParams(PreparedStatement sp, Account object) throws SQLException {
-        if (object.getIdAccount() == 0) {
-            sp.setDouble(1, object.getBalance());
-            sp.setInt(2, object.get_propietaryAccountId());
-            sp.setInt(3, object.get_currency());
-            sp.setInt(4, object.get_typeAccount());
-            sp.setInt(5, object.get_stateAccount());
-            return;
-        }
-        sp.setDouble(1, object.getIdAccount());
-        sp.setDouble(2, object.getBalance());
-        sp.setInt(3, object.get_propietaryAccountId());
-        sp.setInt(4, object.get_currency());
-        sp.setInt(5, object.get_typeAccount());
-        sp.setInt(6, object.get_stateAccount());
+    protected void setProcedureParams(PreparedStatement sp, Account account) throws SQLException {
+        sp.setDouble(1, account.getBalance());
+        sp.setInt(2, account.get_propietaryAccountId());
+        sp.setInt(3, account.get_currency());
+        sp.setInt(4, account.get_typeAccount());
+        sp.setInt(5, account.get_stateAccount());
+        if (account.getIdAccount() == 0) return;
+        sp.setDouble(6, account.getIdAccount());
     }
 
     @Override

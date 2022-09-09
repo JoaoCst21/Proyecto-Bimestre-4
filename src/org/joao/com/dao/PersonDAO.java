@@ -13,34 +13,20 @@ public class PersonDAO extends DAO<Person> {
 
     @Override
     protected void setProcedureParams(PreparedStatement sp, Person person) throws SQLException {
-        if (person.getIdPerson() == 0) {
-            sp.setString(1, person.getPersonName());
-            sp.setString(2, person.getLastName());
-            sp.setString(3, person.getNacionality());
-            sp.setString(4, person.getNumberDocumentType());
-            sp.setString(5, person.getDirection());
-            sp.setString(6, person.getUserName());
-            sp.setString(7, person.getPassword());
-            sp.setString(8, person.getGender());
-            sp.setString(9, person.getDateCreation());
-            sp.setInt(10, person.getPhone());
-            sp.setInt(11, person.get_idDocumentType());
-            sp.setInt(12, person.get_idPhoneCompany());
-            return;
-        }
-        sp.setInt(1, person.getIdPerson());
-        sp.setString(2, person.getPersonName());
-        sp.setString(3, person.getLastName());
-        sp.setString(4, person.getNacionality());
-        sp.setString(5, person.getNumberDocumentType());
-        sp.setString(6, person.getDirection());
-        sp.setString(7, person.getUserName());
-        sp.setString(8, person.getPassword());
-        sp.setString(9, person.getGender());
-        sp.setString(10, person.getDateCreation());
-        sp.setInt(11, person.getPhone());
-        sp.setInt(12, person.get_idDocumentType());
-        sp.setInt(13, person.get_idPhoneCompany());
+        sp.setString(1, person.getPersonName());
+        sp.setString(2, person.getLastName());
+        sp.setString(3, person.getNacionality());
+        sp.setString(4, person.getNumberDocumentType());
+        sp.setString(5, person.getDirection());
+        sp.setString(6, person.getUserName());
+        sp.setString(7, person.getPassword());
+        sp.setString(8, person.getGender());
+        sp.setString(9, person.getDateCreation());
+        sp.setInt(10, person.getPhone());
+        sp.setInt(11, person.get_idDocumentType());
+        sp.setInt(12, person.get_idPhoneCompany());
+        if (person.getIdPerson() == 0) return;
+        sp.setInt(13, person.getIdPerson());
     }
 
     @Override

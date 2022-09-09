@@ -14,24 +14,15 @@ public class TransactionDAO extends DAO<Transaction> {
 
     @Override
     protected void setProcedureParams(PreparedStatement sp, Transaction transaction) throws SQLException {
-        if (transaction.getIdTransaction() == 0) {
-            sp.setInt(1, transaction.get_idAccountReceiver());
-            sp.setInt(2, transaction.get_idAccountSender());
-            sp.setInt(3, transaction.get_idProveedor());
-            sp.setString(4, transaction.getPaymentIdentifier());
-            sp.setString(5, transaction.getDescription());
-            sp.setDouble(6, transaction.getAmount());
-            sp.setDate(7, (Date) transaction.getDateTransaction());
-            return;
-        }
-        sp.setInt(1, transaction.getIdTransaction());
-        sp.setInt(2, transaction.get_idAccountReceiver());
-        sp.setInt(3, transaction.get_idAccountSender());
-        sp.setInt(4, transaction.get_idProveedor());
-        sp.setString(5, transaction.getPaymentIdentifier());
-        sp.setString(6, transaction.getDescription());
-        sp.setDouble(7, transaction.getAmount());
-        sp.setDate(8, (Date) transaction.getDateTransaction());
+        sp.setInt(1, transaction.get_idAccountReceiver());
+        sp.setInt(2, transaction.get_idAccountSender());
+        sp.setInt(3, transaction.get_idProveedor());
+        sp.setString(4, transaction.getPaymentIdentifier());
+        sp.setString(5, transaction.getDescription());
+        sp.setDouble(6, transaction.getAmount());
+        sp.setDate(7, (Date) transaction.getDateTransaction());
+        if (transaction.getIdTransaction() == 0) return;
+        sp.setInt(8, transaction.getIdTransaction());
     }
 
     @Override

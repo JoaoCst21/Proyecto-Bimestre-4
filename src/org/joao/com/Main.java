@@ -1,9 +1,9 @@
 package org.joao.com;
 
-import org.joao.com.dao.TransactionDAO;
+import org.joao.com.controller.Controller;
 
 public class Main {
     public static void main(String[] args) {
-        new TransactionDAO().readAll();
+        new Controller().pedirDatos();
     }
 }
