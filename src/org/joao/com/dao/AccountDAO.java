@@ -1,6 +1,6 @@
 package org.joao.com.dao;
 
-import org.joao.com.dao.DAO;
+import org.joao.com.model.Account;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

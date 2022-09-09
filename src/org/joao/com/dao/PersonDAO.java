@@ -6,8 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class AccountDAO extends DAO<Person> {
-    public AccountDAO() {
+public class PersonDAO extends DAO<Person> {
+    public PersonDAO() {
         super("saveProcedure", "updateProcedure", "searchProcedure", "readAllProcedure", "deleteProcedure");
     }
 
@@ -26,6 +26,7 @@ public class AccountDAO extends DAO<Person> {
             sp.setInt(10, person.getPhone());
             sp.setInt(11, person.get_idDocumentType());
             sp.setInt(12, person.get_idPhoneCompany());
+            return;
         }
         sp.setInt(1, person.getIdPerson());
         sp.setString(2, person.getPersonName());
