@@ -12,9 +12,11 @@ public class Controller {
     Menu menu = new Menu();
 
     public void pedirDatos() {
-        menu.showMenu();
-        int option = sc.nextInt();
-        doAction(option);
+        do {
+            menu.showMenu();
+            int option = sc.nextInt();
+            doAction(option);
+        } while (menu.tryAgain());
     }
 
     private void doAction(int option) {
@@ -24,7 +26,7 @@ public class Controller {
                 String companyName = sc.next();
                 // Validate Company Name
                 phoneCompanyDAO.save(new PhoneCompany(0, companyName));
-                // break;
+                break;
             }
 
             case 2: {
@@ -39,16 +41,19 @@ public class Controller {
                 // Validate Company Name
                 if (!sure()) return;
                 phoneCompanyDAO.update(new PhoneCompany(idCompany, companyName));
+                break;
             }
             case 3: {
                 System.out.println("Ingrese el id de la Compañia a buscar");
                 int idCompany = sc.nextInt();
                 PhoneCompany phoneCompany = phoneCompanyDAO.search(idCompany);
                 System.out.println(phoneCompany.toString());
+                break;
             }
             case 4: {
                 System.out.println("Espere mientras cargamos la Informacion");
                 menu.showObjects(phoneCompanyDAO.readAll());
+                break;
             }
             case 5: {
                 System.out.println("ingrese el id de la Compañia de Telefono");
@@ -57,10 +62,11 @@ public class Controller {
                 System.out.println(phoneCompany.toString());
                 if (!sure()) return;
                 phoneCompanyDAO.delete(idCompany);
-                // break;
+                break;
             }
         }
     }
+
     private boolean sure() {
         System.out.println("Esta seguro que desea proseguir? si/no");
         if (sc.next().toLowerCase().equals("si")) return true;

@@ -7,13 +7,11 @@ import java.util.ArrayList;
 
 public abstract class DAO<Class> implements CRUD<Class> {
     // Attributes
-    private String saveProcedure;
-    private String updateProcedure;
-    private String searchProcedure;
-    private String readAllProcedure;
-    private String deleteProcedure;
-
-    private ArrayList<Class> objectList = new ArrayList<>();
+    private final String saveProcedure;
+    private final String updateProcedure;
+    private final String searchProcedure;
+    private final String readAllProcedure;
+    private final String deleteProcedure;
 
     public DAO(String saveProcedure, String updateProcedure, String searchProcedure, String readAllProcedure, String deleteProcedure) {
         this.saveProcedure = saveProcedure;
@@ -24,7 +22,7 @@ public abstract class DAO<Class> implements CRUD<Class> {
     }
 
     protected PreparedStatement prepareCall(String procedure) throws SQLException {
-        return Conexion.getInstance().getConnection().prepareCall(procedure);
+        return Conexion.getInstance().getConnection().prepareCall("CALL " + procedure);
     }
 
     protected abstract void setProcedureParams(PreparedStatement sp, Class object) throws SQLException;
@@ -72,6 +70,7 @@ public abstract class DAO<Class> implements CRUD<Class> {
 
     @Override
     public ArrayList<Class> readAll() {
+        final ArrayList<Class> objectList = new ArrayList<>();
         try {
             PreparedStatement sp = prepareCall(readAllProcedure);
             ResultSet resultSet = sp.executeQuery();
@@ -88,7 +87,6 @@ public abstract class DAO<Class> implements CRUD<Class> {
     @Override
     public void delete(int idObject) {
         try {
-            Class object = null;
             PreparedStatement sp = prepareCall(deleteProcedure);
             sp.setInt(1, idObject);
             sp.execute();

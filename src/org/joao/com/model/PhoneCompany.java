@@ -28,4 +28,12 @@ public class PhoneCompany {
     public void setNameCompany(String nameCompany) {
         this.nameCompany = nameCompany;
     }
+
+    @Override
+    public String toString() {
+        return "PhoneCompany{" +
+                "idPhoneCompany=" + idPhoneCompany +
+                ", nameCompany='" + nameCompany + '\'' +
+                '}';
+    }
 }
