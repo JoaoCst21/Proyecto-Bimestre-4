@@ -1,17 +1,14 @@
 package org.joao.com.view;
 
-import java.util.ArrayList;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import java.awt.Image;
 
-public class View {
-    protected void showOptions(String[] options) {
-        for (int i = 0; i < options.length; i++) {
-            String option = options[i];
-            System.out.println("Presione " + (i + 1) + " para " + option);
-        }
-    }
+public abstract class View extends JFrame {
+    protected abstract void init();
 
-    public <T extends Object> void showObjects(ArrayList<T> objects) {
-        for (T object : objects)
-            System.out.println(object.toString());
+    public ImageIcon scaleImage(ImageIcon icon, int w) {
+        int nh = icon.getIconHeight() * w / icon.getIconWidth();
+        return new ImageIcon(icon.getImage().getScaledInstance(w, nh, Image.SCALE_DEFAULT));
     }
 }
