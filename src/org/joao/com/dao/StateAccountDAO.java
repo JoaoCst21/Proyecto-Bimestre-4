@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class StateAccountDAO extends DAO<StateAccount> {
     public StateAccountDAO() {
-        super("saveProcedure", "updateProcedure", "searchProcedure", "readAllProcedure", "deleteProcedure");
+        super("enterStateAccount_sp(?)", "updateStateAccount(?,?)", "searchProcedure", "readAllProcedure", "deleteStateAccount_sp(?)");
     }
 
     @Override

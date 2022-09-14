@@ -1,4 +1,4 @@
-package org.joao.com.view;
+package org.joao.com.view.components;
 
 import net.miginfocom.layout.AC;
 import net.miginfocom.layout.CC;
@@ -13,18 +13,18 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.util.HashMap;
 
-public class LoginView extends JPanel {
+public class LoginComponent extends JPanel {
     private JButton loginButton;
     private JButton signUpButton;
 
-    private static LoginView instance;
+    private static LoginComponent instance;
 
-    public static LoginView getInstance() {
-        if (instance == null) instance = new LoginView();
+    public static LoginComponent getInstance() {
+        if (instance == null) instance = new LoginComponent();
         return instance;
     }
 
-    private LoginView() {
+    private LoginComponent() {
         init();
     }
 

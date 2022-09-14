@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/SQL Queries/DDL.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/SQL Queries/DDL-ElectronicBanking.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/SQL Queries/DML-ElectronicBanking.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/SQL Queries/SP-ElectronicBanking.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/SQL Queries/SP-joao-ElecntronicBanking.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/SQL Queries/VW-ElectronicBanking.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/src/org/joao/com/dao/DAO.java" dialect="MySQL" />
   </component>
 </project>

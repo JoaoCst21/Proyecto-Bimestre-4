@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class PersonDAO extends DAO<Person> {
     public PersonDAO() {
-        super("saveProcedure", "updateProcedure", "searchProcedure", "readAllProcedure", "deleteProcedure");
+        super("enterPerson_sp(?,?,?,?,?,?,?,?,?,?,?,?)", "updatePerson_sp(?,?,?,?,?,?,?,?,?,?,?,?,?)", "searchProcedure", "readAllProcedure", "deletePerson(?)");
     }
 
     @Override

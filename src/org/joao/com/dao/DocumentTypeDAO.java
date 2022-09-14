@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class DocumentTypeDAO extends DAO<DocumentType> {
     public DocumentTypeDAO() {
-        super("saveProcedure", "updateProcedure", "searchProcedure", "readAllProcedure", "deleteProcedure");
+        super("enterDocumentType_sp(?)", "updateDocumentType_sp(?,?)", "searchProcedure", "readAllProcedure", "deleteDocumentType_sp(?)");
     }
 
     @Override

@@ -1,4 +1,4 @@
-package org.joao.com.view;
+package org.joao.com.view.components;
 
 import javax.swing.JTextField;
 import javax.swing.text.Document;

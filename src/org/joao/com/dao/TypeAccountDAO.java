@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class TypeAccountDAO extends DAO<TypeAccount> {
     public TypeAccountDAO() {
-        super("saveProcedure", "updateProcedure", "searchProcedure", "readAllProcedure", "deleteProcedure");
+        super("enterTypeAccount_sp(?)", "updateTypeAccount_sp(?, ?)", "searchProcedure", "readAllProcedure", "deleteTypeAccount_s(?)");
     }
 
     @Override

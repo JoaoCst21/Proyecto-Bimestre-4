@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class TransactionDAO extends DAO<Transaction> {
     public TransactionDAO() {
-        super("saveProcedure", "updateProcedure", "searchProcedure", "SELECT * FROM Transactions", "deleteProcedure");
+        super("enterTransactions_sp(?,?,?,?,?,?,?)", "updateTransactions_sp(?,?,?,?,?,?,?,?)", "searchProcedure", "getAllTransactions_sp()", "deleteTransaction_sp(?)");
     }
 
     @Override
