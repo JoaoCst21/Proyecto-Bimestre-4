@@ -139,5 +139,24 @@ public class Person {
     public void set_idPhoneCompany(int _idPhoneCompany) {
         this._idPhoneCompany = _idPhoneCompany;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "idPerson=" + idPerson +
+                ", personName='" + personName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", nacionality='" + nacionality + '\'' +
+                ", numberDocumentType='" + numberDocumentType + '\'' +
+                ", direction='" + direction + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", gender='" + gender + '\'' +
+                ", dateCreation='" + dateCreation + '\'' +
+                ", phone=" + phone +
+                ", _idDocumentType=" + _idDocumentType +
+                ", _idPhoneCompany=" + _idPhoneCompany +
+                '}';
+    }
 }
 

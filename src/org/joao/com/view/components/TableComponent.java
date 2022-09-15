@@ -1,4 +1,4 @@
-package org.joao.com.view.tables;
+package org.joao.com.view.components;
 
 import net.miginfocom.swing.MigLayout;
 

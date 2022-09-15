@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class CurrencyDAO extends DAO<Currency> {
     public CurrencyDAO() {
-        super("enterCurrency_sp(?)", "updateCurrency_sp(?, ?)", "searchProcedure", "readAllProcedure", "deleteCurrency_sp(?)");
+        super("enterCurrency_sp(?)", "updateCurrency_sp(?, ?)", "searchProcedure", "getAllCurrencies_sp()", "deleteCurrency_sp(?)");
     }
 
     @Override

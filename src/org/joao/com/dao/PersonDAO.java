@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class PersonDAO extends DAO<Person> {
     public PersonDAO() {
-        super("enterPerson_sp(?,?,?,?,?,?,?,?,?,?,?,?)", "updatePerson_sp(?,?,?,?,?,?,?,?,?,?,?,?,?)", "searchProcedure", "readAllProcedure", "deletePerson(?)");
+        super("enterPerson_sp(?,?,?,?,?,?,?,?,?,?,?,?)", "updatePerson_sp(?,?,?,?,?,?,?,?,?,?,?,?,?)", "searchProcedure", "getAllPersons_sp()", "deletePerson(?)");
     }
 
     @Override
@@ -37,13 +37,15 @@ public class PersonDAO extends DAO<Person> {
         String direction = resultSet.getString(4);
         int phone = resultSet.getInt(5);
         String user = resultSet.getString(6);
-        String dateCreation = resultSet.getString(7);
-        String password = resultSet.getString(8);
+        String password = resultSet.getString(7);
+        String dateCreation = resultSet.getString(8);
         String gender = resultSet.getString(9);
         String nacionality = resultSet.getString(10);
         String numberDocumentType = resultSet.getString(11);
         int _idDocumentType = resultSet.getInt(12);
         int _idPhoneCompany = resultSet.getInt(13);
-        return new Person(idPerson, firstName, lastName, nacionality, numberDocumentType, direction, user, password, gender, dateCreation, phone, _idDocumentType, _idPhoneCompany);
+        Person person = new Person(idPerson, firstName, lastName, nacionality, numberDocumentType, direction, user, password, gender, dateCreation, phone, _idDocumentType, _idPhoneCompany);
+        System.out.println(person.toString());
+        return person;
     }
 }

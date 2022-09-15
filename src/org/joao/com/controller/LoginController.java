@@ -1,23 +1,18 @@
 package org.joao.com.controller;
 
-import org.joao.com.dao.AccountDAO;
-import org.joao.com.dao.TransactionDAO;
-import org.joao.com.model.Account;
-import org.joao.com.model.Transaction;
 import org.joao.com.view.MenuView;
 import org.joao.com.view.StartView;
-import org.joao.com.view.components.LoginComponent;
-import org.joao.com.view.pages.ReadPage;
+import org.joao.com.view.components.LoginForm;
 
 import java.awt.event.ActionListener;
 
 public class LoginController extends ControllerObserver {
 
-    private LoginComponent view;
+    private LoginForm view;
 
     @Override
     protected void init() {
-        this.view = LoginComponent.getInstance();
+        this.view = LoginForm.getInstance();
     }
 
     private ActionListener loginButtonEvent() {
@@ -30,9 +25,10 @@ public class LoginController extends ControllerObserver {
         return e -> {
             StartView startView = StartView.getInstance();
             startView.dispose();
-            MenuView menuView = new MenuView();
-            ReadPage readPage = new ReadPage(new TransactionDAO().readAll().toArray(new Transaction[0]), new AccountDAO().readAll().toArray(new Account[0]));
-            menuView.add(readPage, "grow");
+            MenuView menuView = MenuView.getInstance();
+            menuView.setVisible(true);
+            MenuController menuController = new MenuController();
+            menuController.addReadPage();
         };
     }
 
@@ -42,11 +38,11 @@ public class LoginController extends ControllerObserver {
         handleEvent(view.getSignUpButton(), signUpButtonEvent());
     }
 
-    public LoginComponent getView() {
+    public LoginForm getView() {
         return view;
     }
 
-    public void setView(LoginComponent view) {
+    public void setView(LoginForm view) {
         this.view = view;
     }
 }

@@ -1,7 +1,8 @@
-package org.joao.com.view.components.panelTable;
+package org.joao.com.view.components;
 
-import org.joao.com.view.tables.TableComponent;
+import net.miginfocom.swing.MigLayout;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import java.awt.Color;
@@ -10,11 +11,15 @@ import java.util.ArrayList;
 
 public abstract class PanelTable<Class> extends JPanel {
 
+    private String titleText;
     protected Class[] data;
+    protected String[] column;
     protected TableComponent table;
 
-    protected PanelTable(Class[] data) {
+    public PanelTable(Class[] data, String[] column, String titleText) {
         this.data = data;
+        this.column = column;
+        this.titleText = titleText;
         init();
         addJScrollPane();
     }
@@ -29,7 +34,13 @@ public abstract class PanelTable<Class> extends JPanel {
         add(jScrollPane, "grow");
     }
 
-    protected abstract void init();
+    protected void init() {
+        setLayout(new MigLayout("fill, debug"));
+        String[][] dataString = arrDataToArrStringArr(data);
+        JLabel title = new JLabel("<html><p style='font-size: 24px'>" + titleText + "</p</html");
+        add(title, "wrap, align 50% 50%");
+        table = new TableComponent(dataString, column);
+    }
 
     protected abstract String[] dataToStringArr(Class object);
 
