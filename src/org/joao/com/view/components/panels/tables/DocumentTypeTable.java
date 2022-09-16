@@ -9,7 +9,7 @@ public class DocumentTypeTable extends PanelTable<DocumentType> {
     }
 
     @Override
-    protected String[] dataToStringArr(DocumentType documentType) {
+    public String[] dataToStringArr(DocumentType documentType) {
         String idDocumentType = String.valueOf(documentType.getIdDocumentType());
         String nameDocumentType = documentType.getNameDocumentType();
 

@@ -42,7 +42,7 @@ public abstract class PanelTable<Class> extends JPanel {
         table = new TableComponent(dataString, column);
     }
 
-    protected abstract String[] dataToStringArr(Class object);
+    public abstract String[] dataToStringArr(Class object);
 
     protected String[][] arrDataToArrStringArr(Class[] transactions) {
         ArrayList<String[]> arrStrings = new ArrayList<>();

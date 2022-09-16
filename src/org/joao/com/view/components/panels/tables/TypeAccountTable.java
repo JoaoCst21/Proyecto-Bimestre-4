@@ -9,7 +9,7 @@ public class TypeAccountTable extends PanelTable<TypeAccount> {
     }
 
     @Override
-    protected String[] dataToStringArr(TypeAccount typeAccount) {
+    public String[] dataToStringArr(TypeAccount typeAccount) {
         String idStateAccount = String.valueOf(typeAccount.getIdStateAccount());
         String nameStateAccount = typeAccount.getNameStateAccount();
 

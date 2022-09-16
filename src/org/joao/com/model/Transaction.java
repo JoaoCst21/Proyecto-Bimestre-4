@@ -5,8 +5,8 @@ import java.util.Date;
 public class Transaction {
     // Attributes
     private int idTransaction;
-    private int _idAccountReceiver;
     private int _idAccountSender;
+    private int _idAccountReceiver;
     private int _idProveedor;
     private String paymentIdentifier;
     private String description;

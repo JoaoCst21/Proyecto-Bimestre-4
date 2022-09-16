@@ -13,18 +13,18 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.util.HashMap;
 
-public class LoginForm extends JPanel {
+public class LoginComponent extends JPanel {
     private JButton loginButton;
     private JButton signUpButton;
 
-    private static LoginForm instance;
+    private static LoginComponent instance;
 
-    public static LoginForm getInstance() {
-        if (instance == null) instance = new LoginForm();
+    public static LoginComponent getInstance() {
+        if (instance == null) instance = new LoginComponent();
         return instance;
     }
 
-    private LoginForm() {
+    private LoginComponent() {
         init();
     }
 

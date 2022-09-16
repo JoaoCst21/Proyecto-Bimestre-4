@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class ProveedorDAO extends DAO<Proveedor> {
     public ProveedorDAO() {
-        super("enterProvider_sp(?,?,?,?)", "updateProvider_sp(?,?,?,?,?)", "searchProcedure", "getAllProviders_sp()", "deleteProvider_sp(?)");
+        super("enterProvider_sp(?,?,?,?)", "updateProvider_sp(?,?,?,?,?)", "getProvider_sp(?)", "getAllProviders_sp()", "deleteProvider_sp(?)");
     }
 
     @Override

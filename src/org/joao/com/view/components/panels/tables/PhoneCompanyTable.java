@@ -9,7 +9,7 @@ public class PhoneCompanyTable extends PanelTable<PhoneCompany> {
     }
 
     @Override
-    protected String[] dataToStringArr(PhoneCompany phoneCompany) {
+    public String[] dataToStringArr(PhoneCompany phoneCompany) {
         String idPhoneCompany = String.valueOf(phoneCompany.getIdPhoneCompany());
         String nameCompany = phoneCompany.getNameCompany();
 

@@ -21,6 +21,7 @@ import org.joao.com.model.TypeAccount;
 import org.joao.com.view.MenuView;
 import org.joao.com.view.pages.CreatePage;
 import org.joao.com.view.pages.ReadPage;
+import org.joao.com.view.pages.UpdatePage;
 
 import javax.swing.JMenu;
 import javax.swing.event.MenuEvent;
@@ -39,11 +40,33 @@ public class MenuController implements Subscriber<JMenu, MenuListener> {
     }
 
 
+    private MenuListener updateMenuListener() {
+        return new MenuListener() {
+
+            @Override
+            public void menuSelected(MenuEvent e) {
+                UpdatePage updatePage = new UpdatePage();
+                if (view.getActiveFrame() != null) view.mainPane.remove(view.getActiveFrame());
+                view.mainPane.add(updatePage, "grow");
+                view.setActiveFrame(updatePage);
+            }
+
+            @Override
+            public void menuDeselected(MenuEvent e) {
+
+            }
+
+            @Override
+            public void menuCanceled(MenuEvent e) {
+
+            }
+        };
+    }
+
     private MenuListener createMenuListener() {
         return new MenuListener() {
             @Override
             public void menuSelected(MenuEvent e) {
-                System.out.println("HOLA");
                 CreatePage createPage = new CreatePage();
                 if (view.getActiveFrame() != null) view.mainPane.remove(view.getActiveFrame());
                 view.mainPane.add(createPage, "grow");
@@ -81,7 +104,7 @@ public class MenuController implements Subscriber<JMenu, MenuListener> {
     public void startSubscription() {
         handleEvent(view.getMenuButtons().get("Crear"), createMenuListener());
         handleEvent(view.getMenuButtons().get("Ver"), readMenuListener());
-        // handleEvent(view.getMenuButtons().get("U"), );
+        handleEvent(view.getMenuButtons().get("Modificar"), updateMenuListener());
     }
 
     @Override

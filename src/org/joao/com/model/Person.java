@@ -1,5 +1,7 @@
 package org.joao.com.model;
 
+import java.sql.Date;
+
 public class Person {
     // Attributes
     private int idPerson;
@@ -11,14 +13,14 @@ public class Person {
     private String userName;
     private String password;
     private String gender;
-    private String dateCreation;
+    private Date dateCreation;
     private int phone;
 
     private int _idDocumentType;
     private int _idPhoneCompany;
 
     // Constructor
-    public Person(int idPerson, String personName, String lastName, String nacionality, String numberDocumentType, String direction, String userName, String password, String gender, String dateCreation, int phone, int _idDocumentType, int _idPhoneCompany) {
+    public Person(int idPerson, String personName, String lastName, String nacionality, String numberDocumentType, String direction, String userName, String password, String gender, Date dateCreation, int phone, int _idDocumentType, int _idPhoneCompany) {
         this.idPerson = idPerson;
         this.personName = personName;
         this.lastName = lastName;
@@ -71,7 +73,7 @@ public class Person {
         return gender;
     }
 
-    public String getDateCreation() {
+    public Date getDateCreation() {
         return dateCreation;
     }
 
@@ -124,7 +126,7 @@ public class Person {
         this.gender = gender;
     }
 
-    public void setDateCreation(String dateCreation) {
+    public void setDateCreation(Date dateCreation) {
         this.dateCreation = dateCreation;
     }
 

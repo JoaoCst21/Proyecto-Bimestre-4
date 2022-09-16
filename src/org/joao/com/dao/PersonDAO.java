@@ -2,13 +2,14 @@ package org.joao.com.dao;
 
 import org.joao.com.model.Person;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class PersonDAO extends DAO<Person> {
     public PersonDAO() {
-        super("enterPerson_sp(?,?,?,?,?,?,?,?,?,?,?,?)", "updatePerson_sp(?,?,?,?,?,?,?,?,?,?,?,?,?)", "searchProcedure", "getAllPersons_sp()", "deletePerson(?)");
+        super("enterPerson_sp(?,?,?,?,?,?,?,?,?,?,?,?)", "updatePerson_sp(?,?,?,?,?,?,?,?,?,?,?,?,?)", "getPerson_sp(?)", "getAllPersons_sp()", "deletePerson(?)");
     }
 
     @Override
@@ -21,7 +22,7 @@ public class PersonDAO extends DAO<Person> {
         sp.setString(6, person.getUserName());
         sp.setString(7, person.getPassword());
         sp.setString(8, person.getGender());
-        sp.setString(9, person.getDateCreation());
+        sp.setDate(9, person.getDateCreation());
         sp.setInt(10, person.getPhone());
         sp.setInt(11, person.get_idDocumentType());
         sp.setInt(12, person.get_idPhoneCompany());
@@ -38,7 +39,7 @@ public class PersonDAO extends DAO<Person> {
         int phone = resultSet.getInt(5);
         String user = resultSet.getString(6);
         String password = resultSet.getString(7);
-        String dateCreation = resultSet.getString(8);
+        Date dateCreation = resultSet.getDate(8);
         String gender = resultSet.getString(9);
         String nacionality = resultSet.getString(10);
         String numberDocumentType = resultSet.getString(11);

@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class PhoneCompanyDAO extends DAO<PhoneCompany> {
     public PhoneCompanyDAO() {
-        super("sp_enterPhoneCompany(?)", "sp_updatePhoneCompany(?, ?)", "sp_searchPhoneCompany(?)", "getAllPhoneCompanies_sp()", "sp_deletePhoneCompany(?)");
+        super("sp_enterPhoneCompany(?)", "sp_updatePhoneCompany(?, ?)", "getPhoneCompany_sp(?)", "getAllPhoneCompanies_sp()", "sp_deletePhoneCompany(?)");
     }
 
     @Override

@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class TransactionDAO extends DAO<Transaction> {
     public TransactionDAO() {
-        super("enterTransactions_sp(?,?,?,?,?,?,?)", "updateTransactions_sp(?,?,?,?,?,?,?,?)", "searchProcedure", "getAllTransactions_sp()", "deleteTransaction_sp(?)");
+        super("enterTransactions_sp(?,?,?,?,?,?,?)", "updateTransactions_sp(?,?,?,?,?,?,?,?)", "getTransaction_sp(?)", "getAllTransactions_sp()", "deleteTransaction_sp(?)");
     }
 
     @Override
@@ -21,6 +21,11 @@ public class TransactionDAO extends DAO<Transaction> {
         sp.setString(5, transaction.getDescription());
         sp.setDouble(6, transaction.getAmount());
         sp.setDate(7, (Date) transaction.getDateTransaction());
+        if (transaction.get_idProveedor() == 0 && transaction.get_idAccountReceiver() == 0) return;
+        if (transaction.get_idProveedor() == 0) sp.setObject(3, null);
+        if (transaction.get_idAccountReceiver() == 0) sp.setObject(4, null);
+
+
         if (transaction.getIdTransaction() == 0) return;
         sp.setInt(8, transaction.getIdTransaction());
     }
@@ -36,9 +41,7 @@ public class TransactionDAO extends DAO<Transaction> {
         String description = resultSet.getString(6);
         Double amount = resultSet.getDouble(7);
         Date dateTransaction = resultSet.getDate(8);
-
-        Transaction xd = new Transaction(idTransaction, _idAccountReceiver, _idAccountSender, _idProveedor, paymentIdentifier, description, amount, dateTransaction);
-        System.out.println(xd.toString());
-        return xd;
+        return new Transaction(idTransaction, _idAccountReceiver, _idAccountSender, _idProveedor, paymentIdentifier, description, amount, dateTransaction);
     }
+
 }

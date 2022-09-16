@@ -10,8 +10,8 @@ que hicieron alguna gestión (deposito, pago de servicios i/o remesa) con saldo 
 */
 -- ------------------------------------------
 CREATE VIEW person_vw AS
-SELECT CONCAT(p.personName, " ", p.lastName) AS 'Complet Name', p.direction AS 'Direction', p.phone AS 'Phone',
-			  DATE_FORMAT(p.dateCreation, "%d/%m/%y") AS 'Date Creation', p.nacionality AS 'Nacionality',
+SELECT CONCAT(p.personName, ' ', p.lastName) AS 'Complet Name', p.direction AS 'Direction', p.phone AS 'Phone',
+			  DATE_FORMAT(p.dateCreation, '%d/%m/%y') AS 'Date Creation', p.nacionality AS 'Nacionality',
               d.nameDocumentType AS 'Document Type', pc.nameCompany AS 'Phone Company'
 FROM Person AS p
 INNER JOIN DocumentType AS d ON p.id_DocumentType = d.idDocumentType
@@ -44,7 +44,7 @@ FROM TypeAccount AS ta;
 
 -- ------------------------------------------
 CREATE VIEW account_vw AS
-SELECT ap.idAccount AS 'ID Account', ap.saldo AS 'Saldo', CONCAT(p.personName, " ", p.lastName) AS 'Name Person',
+SELECT ap.idAccount AS 'ID Account', ap.saldo AS 'Saldo', CONCAT(p.personName, ' ', p.lastName) AS 'Name Person',
 	   p.phone AS 'Phone', c.nameCurrency AS 'Name Currency', t.nameAccount AS 'Account Type', s.stateAccount
        AS 'Account Status' 
 FROM AccountP AS ap

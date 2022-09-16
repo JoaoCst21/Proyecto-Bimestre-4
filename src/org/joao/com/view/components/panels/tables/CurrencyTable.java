@@ -10,7 +10,7 @@ public class CurrencyTable extends PanelTable<Currency> {
     }
 
     @Override
-    protected String[] dataToStringArr(Currency currency) {
+    public String[] dataToStringArr(Currency currency) {
         String idCurrency = String.valueOf(currency.getIdCurrency());
         String currencyName = currency.getCurrencyName();
         return new String[]{idCurrency, currencyName};

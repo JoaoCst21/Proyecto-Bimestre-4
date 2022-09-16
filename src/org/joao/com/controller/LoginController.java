@@ -2,22 +2,21 @@ package org.joao.com.controller;
 
 import org.joao.com.view.MenuView;
 import org.joao.com.view.StartView;
-import org.joao.com.view.components.LoginForm;
+import org.joao.com.view.components.LoginComponent;
 
 import java.awt.event.ActionListener;
 
 public class LoginController extends ControllerObserver {
 
-    private LoginForm view;
+    private LoginComponent view;
 
     @Override
     protected void init() {
-        this.view = LoginForm.getInstance();
+        this.view = LoginComponent.getInstance();
     }
 
     private ActionListener loginButtonEvent() {
         return e -> {
-            System.out.println("WORKSSSSSSSSSSS");
         };
     }
 
@@ -38,11 +37,11 @@ public class LoginController extends ControllerObserver {
         handleEvent(view.getSignUpButton(), signUpButtonEvent());
     }
 
-    public LoginForm getView() {
+    public LoginComponent getView() {
         return view;
     }
 
-    public void setView(LoginForm view) {
+    public void setView(LoginComponent view) {
         this.view = view;
     }
 }

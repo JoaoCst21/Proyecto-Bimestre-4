@@ -72,3 +72,76 @@ BEGIN
 END $$
 DELIMITER ;
 
+
+DELIMITER $$
+CREATE PROCEDURE getTransaction_sp
+(IN _id INT)
+BEGIN
+    SELECT * FROM transactions WHERE idTransaction = _id;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE getAccount_sp
+(IN _id INT)
+BEGIN
+    SELECT * FROM accountp WHERE idAccount = _id;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE getPerson_sp
+(IN _id INT)
+BEGIN
+    SELECT * FROM person WHERE idPerson = _id;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE getProvider_sp
+(IN _id INT)
+BEGIN
+    SELECT * FROM provider WHERE idProvider = _id;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE getStateAccount_sp
+(IN _id INT)
+BEGIN
+    SELECT * FROM stateaccount WHERE idStateAccount = _id;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE getCurrency_sp
+(IN _id INT)
+BEGIN
+    SELECT * FROM currency WHERE idCurrency = _id;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE getTypeAccount_sp
+(IN _id INT)
+BEGIN
+    SELECT * FROM typeaccount WHERE idTypeAccount = _id;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE getPhoneCompany_sp
+(IN _id INT)
+BEGIN
+    SELECT * FROM phonecompany WHERE idCompany = _id;
+END $$
+DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE getDocumentType_sp
+(IN _id INT)
+BEGIN
+    SELECT * FROM documenttype WHERE idDocumentType = _id;
+END $$
+DELIMITER ;
+

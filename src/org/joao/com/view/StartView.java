@@ -1,7 +1,7 @@
 package org.joao.com.view;
 
 import net.miginfocom.swing.MigLayout;
-import org.joao.com.view.components.LoginForm;
+import org.joao.com.view.components.LoginComponent;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -13,7 +13,7 @@ import java.awt.Toolkit;
 
 public class StartView extends View {
     private static StartView instance;
-    LoginForm loginForm;
+    LoginComponent loginComponent;
 
     public static StartView getInstance() {
         if (instance == null) instance = new StartView();
@@ -43,9 +43,9 @@ public class StartView extends View {
         JPanel login = new JPanel(new MigLayout("fill"));
         login.setBorder(BorderFactory.createCompoundBorder(login.getBorder(), BorderFactory.createEmptyBorder(20, 20, 20, 20)));
 
-        LoginForm loginForm = LoginForm.getInstance();
-        loginForm.setBackground(new Color(33, 36, 36));
-        loginForm.setBorder(BorderFactory.createCompoundBorder(
+        LoginComponent loginComponent = LoginComponent.getInstance();
+        loginComponent.setBackground(new Color(33, 36, 36));
+        loginComponent.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createMatteBorder(0, 5, 0, 0, Color.BLACK),
                 BorderFactory.createEmptyBorder(20, 20, 20, 20)));
 
@@ -53,7 +53,7 @@ public class StartView extends View {
         JLabel imageLabel = new JLabel(scaleImage(image, width / 4));
 
         login.add(imageLabel, "grow, alignx center");
-        login.add(loginForm, "align right center, h 100%");
+        login.add(loginComponent, "align right center, h 100%");
         login.setBackground(new Color(33, 36, 36));
 
         // Adding Components

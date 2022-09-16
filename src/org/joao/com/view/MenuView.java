@@ -30,11 +30,11 @@ public class MenuView extends JFrame {
         Color bgPrimary = new Color(25, 26, 27);
 
         setExtendedState(MAXIMIZED_BOTH);
-        setLayout(new MigLayout("fill"));
+        setLayout(new MigLayout("fill", "0[]0", "0[]0"));
         JMenuBar menuBar = new JMenuBar();
         menuBar.setLayout(new MigLayout("debug", "5[]5"));
 
-        String[] titles = new String[]{"Ver", "Crear", "Usuario"};
+        String[] titles = new String[]{"Ver", "Crear", "Modificar", "Usuario"};
         for (String title : titles) {
             menuButtons.put(title, new JMenu(title));
             menuBar.add(menuButtons.get(title), "w 5%");
