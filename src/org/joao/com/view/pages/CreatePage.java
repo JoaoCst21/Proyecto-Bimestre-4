@@ -25,7 +25,7 @@ public class CreatePage extends JInternalFrame {
         setLayout(new MigLayout("fill"));
 
         JPanel panel = new JPanel();
-        panel.setLayout(new MigLayout("fill", "0[25%]0", "0[]0[]0[]0[]0"));
+        panel.setLayout(new MigLayout("fill, debug", "0[25%]0", "0[]0[]0[]0[]0"));
         panel.add(new PersonForm(), "grow, span 1 3");
         panel.add(new TransactionForm(), "grow");
         panel.add(new AccountForm(), "grow");

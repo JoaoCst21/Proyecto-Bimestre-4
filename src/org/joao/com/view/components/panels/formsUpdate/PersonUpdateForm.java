@@ -9,7 +9,6 @@ import java.sql.Date;
 public class PersonUpdateForm extends FormUpdate<Person> {
     public PersonUpdateForm() {
         super(new String[]{"Nombre", "Apellido", "Dirección", "Telefono", "Usuario", "Password", "Fecha", "Sexo", "Nacionalidad", "Numero de Documento", "ID Tipo de Documento", "ID Compañia Telefonica"}, "Modificar Persona");
-
     }
 
     @Override

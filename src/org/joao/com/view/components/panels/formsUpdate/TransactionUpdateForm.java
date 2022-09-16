@@ -9,7 +9,6 @@ import java.sql.Date;
 public class TransactionUpdateForm extends FormUpdate<Transaction> {
     public TransactionUpdateForm() {
         super(new String[]{"Depositario", "Depositante", "Proveedor", "Identificacion de Pago", "Descripcion", "Monto", "Fecha"}, "Modificar Transacción");
-
     }
 
     @Override

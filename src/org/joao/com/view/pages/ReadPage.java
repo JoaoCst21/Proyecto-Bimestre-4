@@ -50,7 +50,7 @@ public class ReadPage extends JInternalFrame {
 
     public void init() {
         setLayout(new MigLayout("fill", "0[]0", "0[]0"));
-        JPanel panel = new JPanel(new MigLayout("fillx"));
+        JPanel panel = new JPanel(new MigLayout("fillx, debug"));
         panel.add(new AccountTable(accounts), "align 10 10, growx");
         panel.add(new TransactionTable(transactions), "align 10 10, growx, wrap");
         panel.add(new PersonTable(persons), "growx, span 2, wrap");

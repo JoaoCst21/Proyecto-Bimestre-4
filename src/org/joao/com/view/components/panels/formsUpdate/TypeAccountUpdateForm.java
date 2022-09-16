@@ -21,10 +21,8 @@ public class TypeAccountUpdateForm extends FormUpdate<TypeAccount> {
 
     @Override
     protected String[] dataToStringArr(TypeAccount typeAccount) {
-        String idStateAccount = String.valueOf(typeAccount.getIdStateAccount());
         String nameStateAccount = typeAccount.getNameStateAccount();
-
-        return new String[]{idStateAccount, nameStateAccount};
+        return new String[]{nameStateAccount};
     }
 
     @Override

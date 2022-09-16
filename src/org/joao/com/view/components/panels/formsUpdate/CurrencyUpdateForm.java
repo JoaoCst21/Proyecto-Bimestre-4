@@ -12,7 +12,6 @@ public class CurrencyUpdateForm extends FormUpdate<Currency> {
     @Override
     public Currency stringArrToObj() {
         return new Currency(Integer.parseInt(buscarInput.getText()), inputs.get("Nombre").getText());
-
     }
 
     @Override

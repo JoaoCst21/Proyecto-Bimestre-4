@@ -26,7 +26,7 @@ public abstract class Form<Class> extends JPanel implements ActionListener {
     }
 
     public void init() {
-        setLayout(new MigLayout("fill, debug", "3[]3", "3[]3"));
+        setLayout(new MigLayout("fill", "3[]3", "3[]3"));
         System.out.println(fields);
         add(new JLabel("<html><p style = 'font-size: 24px;'>" + title + "</p></html>"), "wrap, align 50% 50%");
         for (String text : fields) {
@@ -37,7 +37,7 @@ public abstract class Form<Class> extends JPanel implements ActionListener {
         buttonSubmit = new JButton("Submit");
         buttonSubmit.setForeground(Color.WHITE);
         buttonSubmit.setBackground(new Color(25, 26, 27));
-        add(buttonSubmit, "w 80%, align 50% 50%");
+        add(buttonSubmit, "w 80%, align 50% 100%");
 
         buttonSubmit.addActionListener(this);
     }

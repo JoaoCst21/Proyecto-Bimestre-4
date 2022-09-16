@@ -32,9 +32,9 @@ public class MenuView extends JFrame {
         setExtendedState(MAXIMIZED_BOTH);
         setLayout(new MigLayout("fill", "0[]0", "0[]0"));
         JMenuBar menuBar = new JMenuBar();
-        menuBar.setLayout(new MigLayout("debug", "5[]5"));
+        menuBar.setLayout(new MigLayout("", "5[]5"));
 
-        String[] titles = new String[]{"Ver", "Crear", "Modificar", "Usuario"};
+        String[] titles = new String[]{"Ver", "Crear", "Modificar", "Eliminar"};
         for (String title : titles) {
             menuButtons.put(title, new JMenu(title));
             menuBar.add(menuButtons.get(title), "w 5%");
@@ -42,7 +42,7 @@ public class MenuView extends JFrame {
         System.out.println(menuBar.getSelectionModel());
         setJMenuBar(menuBar);
         mainPane = new JDesktopPane();
-        mainPane.setLayout(new MigLayout("fill"));
+        mainPane.setLayout(new MigLayout("fill", "0[]0", "0[]0"));
         add(mainPane, "grow");
     }
 

@@ -35,7 +35,7 @@ public abstract class PanelTable<Class> extends JPanel {
     }
 
     protected void init() {
-        setLayout(new MigLayout("fill, debug"));
+        setLayout(new MigLayout("fill"));
         String[][] dataString = arrDataToArrStringArr(data);
         JLabel title = new JLabel("<html><p style='font-size: 24px'>" + titleText + "</p</html");
         add(title, "wrap, align 50% 50%");

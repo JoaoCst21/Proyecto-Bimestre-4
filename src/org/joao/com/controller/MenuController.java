@@ -20,6 +20,7 @@ import org.joao.com.model.Transaction;
 import org.joao.com.model.TypeAccount;
 import org.joao.com.view.MenuView;
 import org.joao.com.view.pages.CreatePage;
+import org.joao.com.view.pages.DeletePage;
 import org.joao.com.view.pages.ReadPage;
 import org.joao.com.view.pages.UpdatePage;
 
@@ -39,6 +40,29 @@ public class MenuController implements Subscriber<JMenu, MenuListener> {
         this.view = MenuView.getInstance();
     }
 
+
+    private MenuListener deleteMenuListener() {
+        return new MenuListener() {
+
+            @Override
+            public void menuSelected(MenuEvent e) {
+                DeletePage deletePage = new DeletePage();
+                if (view.getActiveFrame() != null) view.mainPane.remove(view.getActiveFrame());
+                view.mainPane.add(deletePage, "grow");
+                view.setActiveFrame(deletePage);
+            }
+
+            @Override
+            public void menuDeselected(MenuEvent e) {
+
+            }
+
+            @Override
+            public void menuCanceled(MenuEvent e) {
+
+            }
+        };
+    }
 
     private MenuListener updateMenuListener() {
         return new MenuListener() {
@@ -105,6 +129,7 @@ public class MenuController implements Subscriber<JMenu, MenuListener> {
         handleEvent(view.getMenuButtons().get("Crear"), createMenuListener());
         handleEvent(view.getMenuButtons().get("Ver"), readMenuListener());
         handleEvent(view.getMenuButtons().get("Modificar"), updateMenuListener());
+        handleEvent(view.getMenuButtons().get("Eliminar"), deleteMenuListener());
     }
 
     @Override
